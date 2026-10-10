@@ -1,0 +1,19 @@
+Bug 1: Incorrect Subtotal Calculation
+Test   Input            Expected Output                 Actual Output                 Result
+
+1      Pen,₹20 × 3      Subtotal ₹60, Total ₹60         Subtotal ₹23, Total ₹23         BUG
+
+2      Bag, ₹5,000 × 1  Subtotal ₹5,000, Total ₹5,000   Subtotal ₹5,001, Total ₹4,501   BUG
+
+3      Pen, ₹20 × 0     ERROR: invalid quantity         Subtotal ₹20, Total ₹20         BUG
+
+
+subtotal += item.price() + item.quantity();
+
+Actual:   20 + 3 = 23
+
+Expected: 20 × 3 = 60
+
+
+
+Bug 2: Incorrect Discount Condition
